@@ -1,6 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { IconArrowRight } from "@tabler/icons-react";
 import { GridBackground } from "./GridBackground";
 import { ScheduleMockup, DashboardMockup, WorkflowMockup, LineChatMockup } from "./SystemMockups";
@@ -20,16 +19,11 @@ const lineVariants = {
 };
 
 export function Hero() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-
   return (
-    <section id="hero" ref={ref} className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       <GridBackground />
 
-      <motion.div style={{ y, opacity }} className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-16 sm:pb-24 w-full">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-16 sm:pb-24 w-full">
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center">
           {/* Left: Text */}
           <div>
@@ -177,7 +171,7 @@ export function Hero() {
             </div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0B0D1A] to-transparent pointer-events-none z-20" />
     </section>

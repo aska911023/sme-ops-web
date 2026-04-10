@@ -43,7 +43,7 @@ export function PainPoints() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="animate-float">
+            <div className="lg:animate-float">
               <LiffClockInMockup />
             </div>
           </motion.div>
