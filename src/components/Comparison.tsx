@@ -1,52 +1,71 @@
 "use client";
-import { IconCheck, IconX, IconAlertTriangle } from "@tabler/icons-react";
+import { IconCheck, IconX } from "@tabler/icons-react";
+import { motion } from "framer-motion";
 import { ScrollReveal } from "./AnimatedText";
 
 const ROWS = [
   { item: "導入時間", us: "4 週", them: "3-6 個月" },
-  { item: "最低啟動費用", us: "按模組計費", them: "50 萬起" },
+  { item: "最低費用", us: "按模組計費", them: "50 萬起" },
   { item: "使用人數", us: "不限人數", them: "按授權數" },
-  { item: "LINE 整合", us: "完整 LIFF + Bot", them: "需另外開發", usGood: true, themBad: true },
-  { item: "AI 功能", us: "排班 / 流程 / 分析", them: "無", usGood: true, themBad: true },
+  { item: "LINE 整合", us: "LIFF + Bot", them: "需另開發", usGood: true, themBad: true },
+  { item: "AI 功能", us: "排班·流程·分析", them: "無", usGood: true, themBad: true },
   { item: "模組選購", us: "自由選配", them: "整包購買", usGood: true, themBad: true },
-  { item: "系統更新", us: "自動更新", them: "另收費用", usGood: true },
+  { item: "系統更新", us: "自動更新", them: "另收費", usGood: true },
   { item: "客製化", us: "彈性設定", them: "需求單另計" },
 ];
 
 export function Comparison() {
   return (
-    <section className="py-28 px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 to-white">
-      <div className="max-w-3xl mx-auto">
-        <ScrollReveal className="text-center mb-16">
-          <h2 className="font-[var(--font-display)] text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
-            跟傳統 ERP <span className="gradient-text">有什麼不同？</span>
-          </h2>
-        </ScrollReveal>
+    <section className="relative py-28 lg:py-36 px-6 lg:px-8">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-cyan-500/[0.03] blur-[100px] pointer-events-none" />
 
+      <div className="relative max-w-3xl mx-auto">
         <ScrollReveal>
-          <div className="rounded-3xl overflow-hidden border border-black/[0.06] bg-white shadow-xl shadow-indigo-500/[0.03]">
-            {/* Header */}
-            <div className="grid grid-cols-[1.4fr_1fr_1fr] px-6 py-4 bg-gradient-to-r from-indigo-50 to-violet-50 border-b border-black/[0.06]">
-              <div className="text-sm font-bold text-slate-600">比較項目</div>
-              <div className="text-sm font-bold text-indigo-600 text-center">SME Ops</div>
-              <div className="text-sm font-bold text-slate-400 text-center">傳統 ERP</div>
-            </div>
-            {/* Rows */}
-            {ROWS.map((row, i) => (
-              <div key={i} className={`grid grid-cols-[1.4fr_1fr_1fr] px-6 py-4 ${i < ROWS.length - 1 ? "border-b border-black/[0.03]" : ""} hover:bg-indigo-50/30 transition-colors duration-200`}>
-                <div className="text-sm font-medium text-slate-700">{row.item}</div>
-                <div className="text-sm font-bold text-center flex items-center justify-center gap-1.5">
-                  {row.usGood && <IconCheck size={15} className="text-emerald-500" />}
-                  <span className="text-emerald-600">{row.us}</span>
-                </div>
-                <div className="text-sm text-center flex items-center justify-center gap-1.5">
-                  {row.themBad && <IconX size={15} className="text-red-400" />}
-                  <span className="text-slate-400">{row.them}</span>
-                </div>
-              </div>
-            ))}
+          <div className="text-center mb-16">
+            <span className="text-[13px] font-medium text-cyan-400 tracking-wider uppercase mb-4 block">Comparison</span>
+            <h2 className="font-[var(--font-display)] text-4xl lg:text-5xl font-bold tracking-tight">
+              <span className="text-white">跟傳統 ERP</span>
+              <span className="text-white/35"> 有什麼不同？</span>
+            </h2>
           </div>
         </ScrollReveal>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="rounded-2xl border border-white/[0.06] bg-[#12142A]/60 overflow-hidden"
+        >
+          <div className="grid grid-cols-[1.4fr_1fr_1fr] px-6 py-4 border-b border-white/[0.06] bg-white/[0.02]">
+            <div className="text-[11px] font-semibold text-white/30 uppercase tracking-wider">項目</div>
+            <div className="text-center">
+              <span className="px-3 py-1 rounded-md bg-white text-[#0B0D1A] text-[11px] font-bold">SME Ops</span>
+            </div>
+            <div className="text-[11px] font-semibold text-white/25 text-center uppercase tracking-wider">傳統 ERP</div>
+          </div>
+
+          {ROWS.map((row, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.03 }}
+              className={`grid grid-cols-[1.4fr_1fr_1fr] px-6 py-4 ${i < ROWS.length - 1 ? "border-b border-white/[0.03]" : ""} hover:bg-white/[0.02] transition-colors duration-200`}
+            >
+              <div className="text-[13px] font-medium text-white/60">{row.item}</div>
+              <div className="text-[13px] text-center flex items-center justify-center gap-1.5">
+                {row.usGood && <IconCheck size={13} className="text-emerald-400" />}
+                <span className="font-semibold text-white/90">{row.us}</span>
+              </div>
+              <div className="text-[13px] text-center flex items-center justify-center gap-1.5">
+                {row.themBad && <IconX size={13} className="text-white/15" />}
+                <span className="text-white/25">{row.them}</span>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

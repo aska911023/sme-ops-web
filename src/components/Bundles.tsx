@@ -1,67 +1,89 @@
 "use client";
 import { motion } from "framer-motion";
-import { IconCheck, IconChevronRight, IconStar, IconUsers, IconPackage, IconCreditCard, IconGitBranch, IconChartBar } from "@tabler/icons-react";
-import { ScrollReveal, StaggerChildren, StaggerItem } from "./AnimatedText";
+import { IconCheck, IconArrowRight, IconStar, IconUsers, IconPackage, IconCreditCard, IconGitBranch, IconChartBar } from "@tabler/icons-react";
+import { ScrollReveal } from "./AnimatedText";
 
 const BUNDLES = [
-  { icon: IconUsers, color: "from-violet-500 to-purple-500", borderColor: "hover:border-violet-300", name: "人資行政包", tagline: "LINE 打卡 · AI 排班 · 勞基法合規", features: ["GPS + WiFi 打卡驗證", "AI 智慧排班", "14 種假別 + 自動算薪", "找人代班智能推薦", "員工 LIFF 自助操作"], popular: false },
-  { icon: IconPackage, color: "from-emerald-500 to-green-500", borderColor: "hover:border-emerald-300", name: "進銷存管理包", tagline: "採購到出貨 · 手機掃碼 · 智能補貨", features: ["採購申請 → 三方比對 → 驗收入庫", "批號效期追蹤", "安全庫存自動補貨", "多倉調撥管理", "庫存成本估價"], popular: true },
-  { icon: IconCreditCard, color: "from-amber-500 to-orange-500", borderColor: "hover:border-amber-300", name: "財務會計包", tagline: "傳票自動化 · 一鍵對帳 · 稅務申報", features: ["應收應付自動沖帳", "銀行對帳自動比對", "資產負債表 + 損益表", "預算管理 + 成本中心"], popular: false },
-  { icon: IconGitBranch, color: "from-blue-500 to-indigo-500", borderColor: "hover:border-blue-300", name: "流程管理包", tagline: "AI 生成 SOP · 任務追蹤 · 多層簽核", features: ["AI 自動生成 SOP 流程", "任務指派 + LINE 通知", "多關卡簽核流程", "查核清單管理"], popular: false },
-  { icon: IconChartBar, color: "from-pink-500 to-rose-500", borderColor: "hover:border-pink-300", name: "數據分析包", tagline: "跨模組洞察 · AI 異常偵測 · 自訂報表", features: ["營運儀表板即時 KPI", "銷售預測 + 異常偵測", "AI 助理對話式分析"], popular: false },
+  { icon: IconUsers, color: "from-violet-500 to-purple-500", glowColor: "violet", name: "人資行政包", tagline: "LINE 打卡 · AI 排班 · 自動算薪", features: ["GPS + WiFi 打卡", "AI 排班 + 勞基法合規", "14 種假別管理", "智能代班推薦", "員工 LIFF 自助"], popular: false },
+  { icon: IconPackage, color: "from-emerald-500 to-teal-500", glowColor: "emerald", name: "進銷存管理包", tagline: "採購到出貨 · 智能補貨", features: ["採購 → 比對 → 入庫", "批號效期追蹤", "安全庫存補貨", "多倉調撥", "成本估價"], popular: true },
+  { icon: IconCreditCard, color: "from-amber-500 to-orange-500", glowColor: "amber", name: "財務會計包", tagline: "傳票自動化 · 報表產出", features: ["應收應付沖帳", "銀行對帳比對", "損益/資產負債表", "預算+成本中心"], popular: false },
+  { icon: IconGitBranch, color: "from-blue-500 to-indigo-500", glowColor: "indigo", name: "流程管理包", tagline: "AI SOP · 任務 · 簽核", features: ["AI 生成 SOP", "任務+LINE 通知", "多關卡簽核", "查核清單"], popular: false },
+  { icon: IconChartBar, color: "from-rose-500 to-pink-500", glowColor: "rose", name: "數據分析包", tagline: "AI 洞察 · 異常偵測", features: ["即時 KPI 儀表板", "銷售預測", "AI 對話分析"], popular: false },
 ];
 
 export function Bundles() {
   return (
-    <section id="bundles" className="py-28 px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <ScrollReveal className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-sm font-bold mb-6">
-            📦 解決方案
-          </span>
-          <h2 className="font-[var(--font-display)] text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
-            依需求選擇<span className="gradient-text">方案包</span>
-          </h2>
-          <p className="text-lg text-slate-500 max-w-lg mx-auto">
-            或自由組合單一模組，打造最適合你的系統
-          </p>
+    <section id="bundles" className="relative py-28 lg:py-36 px-6 lg:px-8">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-violet-500/[0.04] blur-[100px] pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto">
+        <ScrollReveal>
+          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 mb-16">
+            <div>
+              <span className="text-[13px] font-medium text-violet-400 tracking-wider uppercase mb-4 block">Solutions</span>
+              <h2 className="font-[var(--font-display)] text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1]">
+                <span className="text-white">五大方案包</span>
+                <br />
+                <span className="text-white/35">自由選配組合</span>
+              </h2>
+            </div>
+            <p className="text-[16px] text-white/40 leading-relaxed lg:pt-8">
+              每個方案包都可以獨立導入，也可以跨包組合單一模組。沒有綁定、沒有最低購買量。
+            </p>
+          </div>
         </ScrollReveal>
 
-        <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {BUNDLES.map((b, i) => {
             const Icon = b.icon;
             return (
-              <StaggerItem key={i}>
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  className={`group relative p-6 rounded-2xl bg-white border-2 ${b.popular ? "border-emerald-300 shadow-lg shadow-emerald-500/10" : "border-transparent"} ${b.borderColor} hover:shadow-xl transition-all duration-400`}
-                >
-                  {b.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-emerald-500 to-green-500 text-white text-[11px] font-bold flex items-center gap-1 whitespace-nowrap shadow-md">
-                      <IconStar size={12} /> 最受歡迎
-                    </div>
-                  )}
-                  <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${b.color} flex items-center justify-center mb-4 shadow-md`}>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                whileHover={{ y: -6, borderColor: "rgba(255,255,255,0.12)" }}
+                className={`group relative rounded-2xl border border-white/[0.06] bg-[#12142A]/60 hover:bg-[#1A1D35]/80 transition-all duration-400 overflow-hidden ${
+                  b.popular ? "ring-1 ring-emerald-500/30" : ""
+                }`}
+              >
+                {b.popular && (
+                  <div className="absolute top-0 right-0 px-2.5 py-1 rounded-bl-xl bg-emerald-500/20 text-emerald-300 text-[10px] font-bold flex items-center gap-1">
+                    <IconStar size={10} /> 熱門
+                  </div>
+                )}
+
+                <div className="p-6">
+                  {/* Icon */}
+                  <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${b.color} flex items-center justify-center mb-5 shadow-lg`}>
                     <Icon size={20} className="text-white" stroke={1.5} />
                   </div>
-                  <h3 className="font-[var(--font-display)] font-bold text-base mb-1">{b.name}</h3>
-                  <p className="text-xs text-slate-400 mb-4">{b.tagline}</p>
+
+                  <h3 className="font-[var(--font-display)] font-bold text-[16px] text-white mb-1">{b.name}</h3>
+                  <p className="text-[11px] text-white/30 mb-5">{b.tagline}</p>
+
                   <ul className="space-y-2 mb-5">
                     {b.features.map((f, j) => (
-                      <li key={j} className="flex items-start gap-2 text-xs text-slate-600">
-                        <IconCheck size={14} className="text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <li key={j} className="flex items-start gap-2 text-[12px] text-white/50">
+                        <IconCheck size={13} className="text-emerald-400/70 flex-shrink-0 mt-0.5" />
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <button className="w-full py-2.5 rounded-xl border-2 border-slate-100 text-sm font-bold text-slate-600 hover:border-indigo-200 hover:text-indigo-600 flex items-center justify-center gap-1 transition-all duration-200 group-hover:border-indigo-200">
-                    了解方案 <IconChevronRight size={14} />
+
+                  <button
+                    type="button"
+                    className="w-full flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-white/[0.08] text-[12px] font-semibold text-white/50 hover:border-white/20 hover:text-white/80 transition-all duration-200 group/btn"
+                  >
+                    了解方案
+                    <IconArrowRight size={12} className="group-hover/btn:translate-x-0.5 transition-transform duration-200" />
                   </button>
-                </motion.div>
-              </StaggerItem>
+                </div>
+              </motion.div>
             );
           })}
-        </StaggerChildren>
+        </div>
       </div>
     </section>
   );
