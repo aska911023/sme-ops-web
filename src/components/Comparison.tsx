@@ -37,7 +37,7 @@ export function Comparison() {
           transition={{ duration: 0.5 }}
           className="rounded-2xl border border-white/[0.06] bg-[#12142A]/60 overflow-hidden"
         >
-          <div className="grid grid-cols-[1.4fr_1fr_1fr] px-6 py-4 border-b border-white/[0.06] bg-white/[0.02]">
+          <div className="grid grid-cols-[1.2fr_1fr_1fr] px-3 sm:px-6 py-3 sm:py-4 border-b border-white/[0.06] bg-white/[0.02]">
             <div className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">項目</div>
             <div className="text-center">
               <span className="px-3 py-1 rounded-md bg-white text-[#0B0D1A] text-[11px] font-bold">SME Ops</span>
@@ -52,14 +52,14 @@ export function Comparison() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.03 }}
-              className={`grid grid-cols-[1.4fr_1fr_1fr] px-6 py-4 ${i < ROWS.length - 1 ? "border-b border-white/[0.03]" : ""} hover:bg-white/[0.02] transition-colors duration-200`}
+              className={`grid grid-cols-[1.2fr_1fr_1fr] px-3 sm:px-6 py-3 sm:py-4 ${i < ROWS.length - 1 ? "border-b border-white/[0.03]" : ""} hover:bg-white/[0.02] transition-colors duration-200`}
             >
-              <div className="text-[13px] font-medium text-white/65">{row.item}</div>
-              <div className="text-[13px] text-center flex items-center justify-center gap-1.5">
+              <div className="text-[12px] sm:text-[13px] font-medium text-white/65">{row.item}</div>
+              <div className="text-[11px] sm:text-[13px] text-center flex items-center justify-center gap-1">
                 {row.usGood && <IconCheck size={13} className="text-emerald-400" />}
                 <span className="font-semibold text-white/90">{row.us}</span>
               </div>
-              <div className="text-[13px] text-center flex items-center justify-center gap-1.5">
+              <div className="text-[11px] sm:text-[13px] text-center flex items-center justify-center gap-1">
                 {row.themBad && <IconX size={13} className="text-white/20" />}
                 <span className="text-white/35">{row.them}</span>
               </div>

@@ -127,6 +127,32 @@ export function Hero() {
           </div>
 
           {/* Right: System mockups bento */}
+          {/* Mobile: single mockup */}
+          <motion.div
+            className="md:hidden mt-8 -mx-2 overflow-x-auto no-scrollbar"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <div className="min-w-[340px] px-2">
+              <ScheduleMockup />
+            </div>
+          </motion.div>
+
+          {/* Tablet: show 2 mockups in a row */}
+          <motion.div
+            className="hidden md:grid lg:hidden grid-cols-2 gap-3 mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <ScheduleMockup />
+            <DashboardMockup />
+          </motion.div>
+
+          {/* Desktop: full bento */}
           <motion.div
             className="hidden lg:block relative"
             initial={{ opacity: 0, x: 30 }}

@@ -31,7 +31,7 @@ export function FinalCTA() {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
             />
 
-            <div className="relative z-10 p-12 sm:p-16 lg:p-20 text-center">
+            <div className="relative z-10 p-6 sm:p-12 lg:p-20 text-center">
               <h2 className="font-[var(--font-display)] text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-5 leading-[1.1]">
                 不確定從哪裡開始？
               </h2>

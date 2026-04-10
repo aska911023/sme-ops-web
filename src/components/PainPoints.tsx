@@ -20,7 +20,7 @@ export function PainPoints() {
 
       <div className="relative max-w-[1280px] mx-auto">
         {/* Header + phone mockups */}
-        <div className="grid lg:grid-cols-[1fr_auto_auto] gap-8 lg:gap-16 mb-16 items-end">
+        <div className="grid md:grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto_auto] gap-8 lg:gap-16 mb-16 items-end">
           <ScrollReveal>
             <div>
               <span className="text-[13px] font-medium text-red-400 tracking-wider uppercase mb-4 block">Pain Points</span>
@@ -35,9 +35,9 @@ export function PainPoints() {
             </div>
           </ScrollReveal>
 
-          {/* Phone mockups floating */}
+          {/* Phone mockups — visible on md+ */}
           <motion.div
-            className="hidden lg:block"
+            className="hidden md:block"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

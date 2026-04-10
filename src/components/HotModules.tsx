@@ -48,7 +48,7 @@ export function HotModules() {
         <ScrollReveal>
           <div className="max-w-lg mb-20">
             <span className="text-[13px] font-medium text-indigo-400 tracking-wider uppercase mb-4 block">Popular Modules</span>
-            <h2 className="font-[var(--font-display)] text-4xl lg:text-[2.8rem] font-bold tracking-tight leading-[1.15] mb-4 text-white">
+            <h2 className="font-[var(--font-display)] text-3xl sm:text-4xl lg:text-[2.8rem] font-bold tracking-tight leading-[1.15] mb-4 text-white">
               最受歡迎的模組
             </h2>
             <p className="text-[16px] text-white/40 leading-relaxed">
