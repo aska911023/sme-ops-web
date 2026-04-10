@@ -6,6 +6,7 @@ import { Bundles } from "@/components/Bundles";
 import { Timeline } from "@/components/Timeline";
 import { Comparison } from "@/components/Comparison";
 import { FinalCTA } from "@/components/FinalCTA";
+import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <Timeline />
       <Comparison />
       <FinalCTA />
+      <ContactForm />
       <Footer />
     </main>
   );
