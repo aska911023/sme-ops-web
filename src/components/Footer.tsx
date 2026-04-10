@@ -6,9 +6,9 @@ export function Footer() {
           <div className="w-7 h-7 rounded-md bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white font-bold text-[10px]">
             S
           </div>
-          <span className="text-sm text-white/30">SME OPS</span>
+          <span className="text-sm text-white/40">SME OPS</span>
         </div>
-        <span className="text-xs text-white/20">專為台灣中小企業打造</span>
+        <span className="text-xs text-white/30">© 2026 SME Ops. 專為台灣中小企業打造。</span>
       </div>
     </footer>
   );

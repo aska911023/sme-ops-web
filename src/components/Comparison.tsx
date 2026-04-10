@@ -23,9 +23,9 @@ export function Comparison() {
         <ScrollReveal>
           <div className="text-center mb-16">
             <span className="text-[13px] font-medium text-cyan-400 tracking-wider uppercase mb-4 block">Comparison</span>
-            <h2 className="font-[var(--font-display)] text-4xl lg:text-5xl font-bold tracking-tight">
+            <h2 className="font-[var(--font-display)] text-3xl sm:text-4xl lg:text-[2.8rem] font-bold tracking-tight">
               <span className="text-white">跟傳統 ERP</span>
-              <span className="text-white/35"> 有什麼不同？</span>
+              <span className="text-white/50"> 有什麼不同？</span>
             </h2>
           </div>
         </ScrollReveal>
@@ -38,11 +38,11 @@ export function Comparison() {
           className="rounded-2xl border border-white/[0.06] bg-[#12142A]/60 overflow-hidden"
         >
           <div className="grid grid-cols-[1.4fr_1fr_1fr] px-6 py-4 border-b border-white/[0.06] bg-white/[0.02]">
-            <div className="text-[11px] font-semibold text-white/30 uppercase tracking-wider">項目</div>
+            <div className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">項目</div>
             <div className="text-center">
               <span className="px-3 py-1 rounded-md bg-white text-[#0B0D1A] text-[11px] font-bold">SME Ops</span>
             </div>
-            <div className="text-[11px] font-semibold text-white/25 text-center uppercase tracking-wider">傳統 ERP</div>
+            <div className="text-[11px] font-semibold text-white/35 text-center uppercase tracking-wider">傳統 ERP</div>
           </div>
 
           {ROWS.map((row, i) => (
@@ -54,14 +54,14 @@ export function Comparison() {
               transition={{ delay: i * 0.03 }}
               className={`grid grid-cols-[1.4fr_1fr_1fr] px-6 py-4 ${i < ROWS.length - 1 ? "border-b border-white/[0.03]" : ""} hover:bg-white/[0.02] transition-colors duration-200`}
             >
-              <div className="text-[13px] font-medium text-white/60">{row.item}</div>
+              <div className="text-[13px] font-medium text-white/65">{row.item}</div>
               <div className="text-[13px] text-center flex items-center justify-center gap-1.5">
                 {row.usGood && <IconCheck size={13} className="text-emerald-400" />}
                 <span className="font-semibold text-white/90">{row.us}</span>
               </div>
               <div className="text-[13px] text-center flex items-center justify-center gap-1.5">
-                {row.themBad && <IconX size={13} className="text-white/15" />}
-                <span className="text-white/25">{row.them}</span>
+                {row.themBad && <IconX size={13} className="text-white/20" />}
+                <span className="text-white/35">{row.them}</span>
               </div>
             </motion.div>
           ))}
